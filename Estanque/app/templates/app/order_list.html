@@ -1,0 +1,16 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block content %}
+<a href="{% url 'order_create' %}">+ New Order</a>
+
+<div class="nav right">
+</div>
+
+    {% for order in order %}
+       <div class="order r">
+           <h2><a href="{% url 'order_detail' order.pk %}">{{order.customer}}</a></h2>
+           <a>{{order.order_detail}}</a>
+
+       </div>
+    {% endfor %}
+{% endblock content %}
